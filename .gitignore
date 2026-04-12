@@ -1,0 +1,14 @@
+# --- Sensitive Info ---
+backend/.env
+frontend/.env
+
+# --- Junk/Temporary Files ---
+**/__pycache__/
+*.pyc
+*.zip
+
+# --- Dependencies ---
+frontend/node_modules/
+frontend/dist/
+backend/venv/
+backend/.venv/
