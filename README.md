@@ -24,3 +24,9 @@ A full-stack web application that helps users track expenses, analyze spending p
 
 ## How it works
 User input → ML model categorizes → Data stored → Insights generated → Charts displayed
+
+## Future Improvements
+User authentication
+Real-time notifications
+Advanced ML models
+Mobile app version
