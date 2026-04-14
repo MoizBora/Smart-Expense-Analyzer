@@ -1,56 +1,7 @@
-// History — full expense table with search and category filter
 import { useState, useEffect } from "react";
 import ExpenseTable from "../components/ExpenseTable";
 import { getExpenses } from "../Services/api";
-// Spinner animation keyframes
-const spinnerKeyframes = `
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
 
-const styles = {
-  header: { display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "24px", flexWrap: "wrap", gap: "12px" },
-  title: { fontSize: "28px", fontWeight: "800", color: "#1a1a2e", marginBottom: "4px" },
-  totalBadge: { background: "#5b21b6", color: "white", padding: "10px 20px", borderRadius: "12px", fontWeight: "700", fontSize: "16px" },
-  filterBar: { display: "flex", flexDirection: "column", gap: "16px" },
-  searchWrapper: { position: "relative" },
-  searchIcon: { position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", fontSize: "16px" },
-  searchInput: {
-    width: "100%", padding: "12px 16px 12px 44px", border: "1.5px solid #e5e7eb",
-    borderRadius: "10px", fontSize: "15px", outline: "none",
-    background: "#fafafa", fontFamily: "Inter, sans-serif",
-    boxSizing: "border-box",
-  },
-  filterRow: { display: "flex", gap: "8px", flexWrap: "wrap" },
-  filterBtn: {
-    padding: "6px 16px", borderRadius: "50px", border: "1.5px solid #e5e7eb",
-    background: "white", color: "#6b7280", fontSize: "13px",
-    fontWeight: "500", cursor: "pointer", transition: "all 0.2s",
-  },
-  filterBtnActive: { background: "#5b21b6", color: "white", borderColor: "#5b21b6", fontWeight: "600" },
-  emptyState: { textAlign: "center", padding: "60px 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" },
-  emptyText: { fontSize: "16px", color: "#6b7280", fontWeight: "500" },
-  
-  // Loading state styles
-  loadingState: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" },
-  spinner: {
-    width: "40px",
-    height: "40px",
-    border: "4px solid #e5e7eb",
-    borderTop: "4px solid #5b21b6",
-    borderRadius: "50%",
-    animation: "spin 1s linear infinite",
-  },
-  loadingText: { fontSize: "16px", color: "#6b7280", fontWeight: "500" },
-  
-  // Error state styles
-  errorState: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" },
-  errorText: { fontSize: "16px", color: "#ef4444", fontWeight: "500" },
-};
-
-// Define categories (you may want to move this to a constants file)
 const categories = ["Food", "Transport", "Shopping", "Bills", "Entertainment", "Health", "Other"];
 
 export default function History() {
@@ -60,7 +11,6 @@ export default function History() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch expenses from API on component mount
   useEffect(() => {
     fetchExpenses();
   }, []);
@@ -79,115 +29,174 @@ export default function History() {
     }
   };
 
-  // Filter logic — runs on every render
-  // Filter logic — safe from undefined/null fields
-const filtered = expenses.filter((exp) => {
-  // Use ?. and || "" to provide a fallback string
-  const description = exp.description?.toLowerCase() || "";
-  const category = exp.category?.toLowerCase() || "";
-  const searchTerm = search.toLowerCase();
+  const filtered = expenses.filter((exp) => {
+    const description = exp.description?.toLowerCase() || "";
+    const category = exp.category?.toLowerCase() || "";
+    const searchTerm = search.toLowerCase();
 
-  const matchSearch = description.includes(searchTerm) || category.includes(searchTerm);
-  const matchCategory = filterCategory === "All" || exp.category === filterCategory;
-  
-  return matchSearch && matchCategory;
-});
+    const matchSearch = description.includes(searchTerm) || category.includes(searchTerm);
+    const matchCategory = filterCategory === "All" || exp.category === filterCategory;
+    
+    return matchSearch && matchCategory;
+  });
 
-  // Total of filtered results
   const filteredTotal = filtered.reduce((sum, e) => sum + e.amount, 0);
 
   return (
-    <div className="page-wrapper">
-      <style>{spinnerKeyframes}</style>
+    <div style={styles.pageWrapper}>
+      {/* Decorative elements */}
+      <div style={styles.bgDecoration1} />
+      <div style={styles.bgDecoration2} />
 
       {/* Header */}
       <div style={styles.header}>
         <div>
-          <h1 style={styles.title}>Expense History</h1>
-          <p className="text-muted">Browse and search all your recorded expenses.</p>
+          <h1 style={styles.title}>Transaction History</h1>
+          <p style={styles.subtitle}>
+            Browse, search, and analyze all your recorded expenses
+          </p>
         </div>
         <div style={styles.totalBadge}>
-          Total: ₹{filteredTotal.toLocaleString("en-IN")}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ marginRight: '8px' }}>
+            <path d="M4 7h12M4 12h8M6 16h8a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" 
+              stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          </svg>
+          <div>
+            <div style={styles.totalLabel}>Total</div>
+            <div style={styles.totalAmount}>₹{filteredTotal.toLocaleString("en-IN")}</div>
+          </div>
         </div>
       </div>
 
-      {/* ── SEARCH & FILTER BAR ── */}
-      <div className="card" style={styles.filterBar}>
-        {/* Search input */}
-        <div style={styles.searchWrapper}>
-          <span style={styles.searchIcon}>🔍</span>
-          <input
-            type="text"
-            placeholder="Search by description or category…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={styles.searchInput}
-          />
+      {/* Search & Filter Card */}
+      <div style={styles.filterCard}>
+        <div style={styles.searchSection}>
+          <div style={styles.searchWrapper}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={styles.searchIcon}>
+              <circle cx="8" cy="8" r="5.5" stroke="#737373" strokeWidth="1.5" fill="none"/>
+              <path d="M12 12l4 4" stroke="#737373" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <input
+              type="text"
+              placeholder="Search by description or category..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={styles.searchInput}
+            />
+            {search && (
+              <button
+                onClick={() => setSearch("")}
+                style={styles.clearBtn}
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
 
-        {/* Category filter buttons */}
-        <div style={styles.filterRow}>
-          {["All", ...categories].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilterCategory(cat)}
-              style={{
-                ...styles.filterBtn,
-                ...(filterCategory === cat ? styles.filterBtnActive : {}),
-              }}
-            >
-              {cat}
-            </button>
-          ))}
+        <div style={styles.filterSection}>
+          <div style={styles.filterLabel}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginRight: '6px' }}>
+              <path d="M2 4h12M4 8h8M6 12h4" stroke="#737373" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            Filter by Category
+          </div>
+          <div style={styles.filterRow}>
+            {["All", ...categories].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilterCategory(cat)}
+                style={{
+                  ...styles.filterBtn,
+                  ...(filterCategory === cat ? styles.filterBtnActive : {}),
+                }}
+              >
+                {cat}
+                {filterCategory === cat && (
+                  <div style={styles.activeDot} />
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ── LOADING STATE ── */}
+      {/* Loading State */}
       {loading && (
-        <div className="card" style={{ marginTop: "20px", padding: "60px 20px" }}>
+        <div style={styles.stateCard}>
           <div style={styles.loadingState}>
-            <div style={styles.spinner}></div>
-            <p style={styles.loadingText}>Loading expenses...</p>
+            <div style={styles.spinner} />
+            <p style={styles.stateText}>Loading your transaction history...</p>
           </div>
         </div>
       )}
 
-      {/* ── ERROR STATE ── */}
+      {/* Error State */}
       {error && !loading && (
-        <div className="card" style={{ marginTop: "20px", padding: "40px 20px" }}>
+        <div style={styles.stateCard}>
           <div style={styles.errorState}>
-            <span style={{ fontSize: "48px" }}>⚠️</span>
+            <div style={styles.errorIcon}>⚠️</div>
             <p style={styles.errorText}>{error}</p>
-            <button className="btn-primary" onClick={fetchExpenses}>
+            <button onClick={fetchExpenses} style={styles.retryBtn}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginRight: '6px' }}>
+                <path d="M14 8c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6c1.657 0 3.157.672 4.243 1.757M13 3v3h-3" 
+                  stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
               Retry
             </button>
           </div>
         </div>
       )}
 
-      {/* ── TABLE ── */}
+      {/* Table */}
       {!loading && !error && (
-        <div className="card" style={{ marginTop: "20px" }}>
+        <div style={styles.tableCard}>
           {filtered.length > 0 ? (
             <>
-              <p className="text-muted" style={{ marginBottom: "12px" }}>
-                Showing {filtered.length} result{filtered.length !== 1 ? "s" : ""}
-              </p>
+              <div style={styles.tableHeader}>
+                <p style={styles.resultCount}>
+                  Showing <span style={styles.resultNumber}>{filtered.length}</span> {filtered.length === 1 ? 'transaction' : 'transactions'}
+                </p>
+                {(search || filterCategory !== "All") && (
+                  <button
+                    onClick={() => {
+                      setSearch("");
+                      setFilterCategory("All");
+                    }}
+                    style={styles.clearFiltersBtn}
+                  >
+                    Clear all filters
+                  </button>
+                )}
+              </div>
               <ExpenseTable expenses={filtered} />
             </>
           ) : (
             <div style={styles.emptyState}>
-              <span style={{ fontSize: "48px" }}>
+              <div style={styles.emptyIcon}>
                 {expenses.length === 0 ? "📋" : "🔍"}
-              </span>
+              </div>
+              <p style={styles.emptyTitle}>
+                {expenses.length === 0 
+                  ? "No transactions yet" 
+                  : "No matching transactions"}
+              </p>
               <p style={styles.emptyText}>
                 {expenses.length === 0 
-                  ? "No expenses yet. Start adding some!" 
-                  : "No expenses match your search."}
+                  ? "Start adding expenses to see them here" 
+                  : "Try adjusting your search or filters"}
               </p>
               {expenses.length > 0 && (
-                <button className="btn-outline" onClick={() => { setSearch(""); setFilterCategory("All"); }}>
-                  Clear filters
+                <button 
+                  onClick={() => { 
+                    setSearch(""); 
+                    setFilterCategory("All"); 
+                  }}
+                  style={styles.clearBtn2}
+                >
+                  Clear all filters
                 </button>
               )}
             </div>
@@ -195,8 +204,328 @@ const filtered = expenses.filter((exp) => {
         </div>
       )}
 
+      {/* Loading animation */}
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </div>
   );
 }
 
-
+const styles = {
+  pageWrapper: {
+    padding: "40px",
+    maxWidth: "1400px",
+    margin: "0 auto",
+    fontFamily: "'Inter', sans-serif",
+    position: "relative",
+  },
+  bgDecoration1: {
+    position: "fixed",
+    top: "15%",
+    right: "-5%",
+    width: "450px",
+    height: "450px",
+    background: "radial-gradient(circle, rgba(22, 101, 52, 0.05) 0%, transparent 70%)",
+    borderRadius: "50%",
+    filter: "blur(70px)",
+    pointerEvents: "none",
+    zIndex: 0,
+  },
+  bgDecoration2: {
+    position: "fixed",
+    bottom: "15%",
+    left: "-8%",
+    width: "550px",
+    height: "550px",
+    background: "radial-gradient(circle, rgba(132, 204, 22, 0.04) 0%, transparent 70%)",
+    borderRadius: "50%",
+    filter: "blur(90px)",
+    pointerEvents: "none",
+    zIndex: 0,
+  },
+  header: { 
+    display: "flex", 
+    justifyContent: "space-between", 
+    alignItems: "flex-start", 
+    marginBottom: "32px",
+    position: "relative",
+    zIndex: 1,
+  },
+  title: { 
+    fontSize: "36px", 
+    fontWeight: "600", 
+    color: "#171717",
+    marginBottom: "6px",
+    fontFamily: "'Playfair Display', Georgia, serif",
+    letterSpacing: "-0.02em",
+  },
+  subtitle: {
+    fontSize: "15px",
+    color: "#737373",
+  },
+  totalBadge: { 
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    background: "linear-gradient(135deg, #0f4b32 0%, #166534 100%)",
+    color: "white", 
+    padding: "16px 24px", 
+    borderRadius: "14px", 
+    fontWeight: "600",
+    boxShadow: "0 4px 16px rgba(15, 75, 50, 0.2)",
+  },
+  totalLabel: {
+    fontSize: "11px",
+    opacity: 0.8,
+    textTransform: "uppercase",
+    letterSpacing: "0.08em",
+  },
+  totalAmount: {
+    fontSize: "20px",
+    fontWeight: "700",
+  },
+  filterCard: {
+    background: "#fdfdf9",
+    borderRadius: "16px",
+    padding: "28px",
+    border: "1px solid rgba(15, 75, 50, 0.08)",
+    boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+    marginBottom: "24px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "24px",
+    position: "relative",
+    zIndex: 1,
+  },
+  searchSection: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+  },
+  searchWrapper: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+  },
+  searchIcon: {
+    position: "absolute",
+    left: "16px",
+    pointerEvents: "none",
+  },
+  searchInput: {
+    width: "100%",
+    padding: "14px 16px 14px 48px",
+    border: "1.5px solid rgba(15, 75, 50, 0.15)",
+    borderRadius: "12px",
+    fontSize: "15px",
+    outline: "none",
+    background: "#fdfdf9",
+    fontFamily: "'Inter', sans-serif",
+    transition: "all 0.2s ease",
+    color: "#171717",
+  },
+  clearBtn: {
+    position: "absolute",
+    right: "12px",
+    background: "rgba(15, 75, 50, 0.08)",
+    border: "none",
+    borderRadius: "8px",
+    width: "28px",
+    height: "28px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    color: "#525252",
+    transition: "all 0.2s ease",
+  },
+  filterSection: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "14px",
+  },
+  filterLabel: {
+    fontSize: "13px",
+    fontWeight: "600",
+    color: "#525252",
+    display: "flex",
+    alignItems: "center",
+    textTransform: "uppercase",
+    letterSpacing: "0.05em",
+  },
+  filterRow: { 
+    display: "flex", 
+    gap: "10px", 
+    flexWrap: "wrap" 
+  },
+  filterBtn: {
+    position: "relative",
+    padding: "9px 18px",
+    borderRadius: "10px",
+    border: "1.5px solid rgba(15, 75, 50, 0.15)",
+    background: "#fdfdf9",
+    color: "#525252",
+    fontSize: "14px",
+    fontWeight: "500",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+    fontFamily: "'Inter', sans-serif",
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+  },
+  filterBtnActive: { 
+    background: "linear-gradient(135deg, #0f4b32 0%, #166534 100%)",
+    color: "white", 
+    borderColor: "transparent",
+    fontWeight: "600",
+    boxShadow: "0 2px 8px rgba(15, 75, 50, 0.15)",
+  },
+  activeDot: {
+    width: "5px",
+    height: "5px",
+    borderRadius: "50%",
+    background: "white",
+    boxShadow: "0 0 6px rgba(255, 255, 255, 0.5)",
+  },
+  stateCard: {
+    background: "#fdfdf9",
+    borderRadius: "16px",
+    padding: "60px 20px",
+    border: "1px solid rgba(15, 75, 50, 0.08)",
+    boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+    position: "relative",
+    zIndex: 1,
+  },
+  loadingState: { 
+    textAlign: "center", 
+    display: "flex", 
+    flexDirection: "column", 
+    alignItems: "center", 
+    gap: "20px" 
+  },
+  spinner: {
+    width: "48px",
+    height: "48px",
+    border: "4px solid rgba(15, 75, 50, 0.1)",
+    borderTop: "4px solid #166534",
+    borderRadius: "50%",
+    animation: "spin 1s linear infinite",
+  },
+  stateText: { 
+    fontSize: "16px", 
+    color: "#737373", 
+    fontWeight: "500" 
+  },
+  errorState: { 
+    textAlign: "center", 
+    display: "flex", 
+    flexDirection: "column", 
+    alignItems: "center", 
+    gap: "16px" 
+  },
+  errorIcon: {
+    fontSize: "64px",
+  },
+  errorText: { 
+    fontSize: "16px", 
+    color: "#dc2626", 
+    fontWeight: "500",
+    maxWidth: "400px",
+  },
+  retryBtn: {
+    display: "flex",
+    alignItems: "center",
+    padding: "12px 24px",
+    background: "linear-gradient(135deg, #0f4b32 0%, #166534 100%)",
+    color: "white",
+    border: "none",
+    borderRadius: "10px",
+    fontSize: "14px",
+    fontWeight: "600",
+    cursor: "pointer",
+    fontFamily: "'Inter', sans-serif",
+    boxShadow: "0 2px 8px rgba(15, 75, 50, 0.2)",
+    transition: "all 0.2s ease",
+  },
+  tableCard: {
+    background: "#fdfdf9",
+    borderRadius: "16px",
+    padding: "32px",
+    border: "1px solid rgba(15, 75, 50, 0.08)",
+    boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+    position: "relative",
+    zIndex: 1,
+    animation: "fadeIn 0.3s ease",
+  },
+  tableHeader: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "20px",
+  },
+  resultCount: {
+    fontSize: "14px",
+    color: "#737373",
+  },
+  resultNumber: {
+    fontWeight: "700",
+    color: "#0f4b32",
+  },
+  clearFiltersBtn: {
+    background: "transparent",
+    border: "1.5px solid rgba(15, 75, 50, 0.2)",
+    color: "#0f4b32",
+    padding: "8px 16px",
+    borderRadius: "8px",
+    fontSize: "13px",
+    fontWeight: "600",
+    cursor: "pointer",
+    fontFamily: "'Inter', sans-serif",
+    transition: "all 0.2s ease",
+  },
+  emptyState: { 
+    textAlign: "center", 
+    padding: "80px 20px", 
+    display: "flex", 
+    flexDirection: "column", 
+    alignItems: "center", 
+    gap: "16px" 
+  },
+  emptyIcon: {
+    fontSize: "72px",
+    marginBottom: "8px",
+  },
+  emptyTitle: {
+    fontSize: "20px",
+    fontWeight: "600",
+    color: "#171717",
+  },
+  emptyText: { 
+    fontSize: "15px", 
+    color: "#737373",
+    maxWidth: "400px",
+  },
+  clearBtn2: {
+    marginTop: "8px",
+    padding: "12px 24px",
+    background: "transparent",
+    border: "1.5px solid rgba(15, 75, 50, 0.2)",
+    color: "#0f4b32",
+    borderRadius: "10px",
+    fontSize: "14px",
+    fontWeight: "600",
+    cursor: "pointer",
+    fontFamily: "'Inter', sans-serif",
+    transition: "all 0.2s ease",
+  }
+  
+};

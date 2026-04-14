@@ -1,0 +1,492 @@
+text,category
+zomato order,Food
+swiggy dinner,Food
+swiggy lunch,Food
+swiggy breakfast,Food
+swiggy instamart,Food
+pizza hut,Food
+pizza hut order,Food
+burger king meal,Food
+dominos pizza,Food
+restaurant lunch,Food
+cafe coffee,Food
+ordered food online,Food
+dinner at restaurant,Food
+breakfast order,Food
+coffee with friends,Food
+lunch with colleagues,Food
+dinner outing,Food
+snacks purchase,Food
+ice cream,Food
+tea stall,Food
+fast food,Food
+street food,Food
+bakery items,Food
+food delivery,Food
+restaurant bill,Food
+uber eats,Food
+uber ride,Travel
+ola cab,Travel
+bus ticket,Travel
+train ticket,Travel
+auto fare,Travel
+metro ticket,Travel
+flight booking,Travel
+taxi ride,Travel
+petrol refill,Travel
+fuel expense,Travel
+cab booking,Travel
+daily commute,Travel
+office travel,Travel
+trip expense,Travel
+holiday travel,Travel
+fuel station,Travel
+bike petrol,Travel
+car fuel,Travel
+uber trip,Travel
+amazon shopping,Shopping
+flipkart order,Shopping
+buy clothes,Shopping
+shopping mall purchase,Shopping
+online shopping,Shopping
+bought shoes,Shopping
+grocery shopping,Shopping
+supermarket purchase,Shopping
+electronics purchase,Shopping
+mobile accessories,Shopping
+amazon groceries,Shopping
+flipkart electronics,Shopping
+shopping clothes,Shopping
+movie ticket,Entertainment
+netflix subscription,Entertainment
+spotify subscription,Entertainment
+concert ticket,Entertainment
+game purchase,Entertainment
+youtube premium,Entertainment
+cinema snacks,Entertainment
+theatre ticket,Entertainment
+gaming subscription,Entertainment
+ott subscription,Entertainment
+movie night,Entertainment
+netflix monthly,Entertainment
+gym membership,Health
+doctor visit,Health
+medicine purchase,Health
+hospital bill,Health
+health checkup,Health
+pharmacy expense,Health
+fitness subscription,Health
+protein supplements,Health
+yoga class,Health
+medical test,Health
+gym fees,Health
+doctor consultation,Health
+medicine bill,Health
+electricity bill,Bills
+water bill,Bills
+internet bill,Bills
+mobile recharge,Bills
+wifi bill,Bills
+gas bill,Bills
+utility bill,Bills
+broadband recharge,Bills
+dth recharge,Bills
+subscription bill,Bills
+internet recharge,Bills
+mobile bill,Bills
+electric bill,Bills
+college fees,Education
+course purchase,Education
+online course,Education
+book purchase,Education
+tuition fees,Education
+exam fees,Education
+study material,Education
+training program,Education
+certification course,Education
+learning subscription,Education
+online class,Education
+buy notebook,Education
+course fee,Education
+gift purchase,Other
+donation,Other
+random expense,Other
+miscellaneous expense,Other
+unknown expense,Other
+cash withdrawal,Other
+bank charges,Other
+service fee,Other
+late fee,Other
+penalty charge,Other
+random purchase,Other
+classic milds,Other
+marlboro gold,Other
+gold flake,Other
+cigarettes at pan shop,Other
+loose cigarette,Other
+tobacco pouch,Other
+vape refill,Other
+hookah flavor,Other
+chewing tobacco,Other
+lighter purchase,Other
+rolling papers,Other
+matches box,Other
+daily newspaper,Other
+milk packet delivery,Groceries
+bread and eggs,Groceries
+curd and lassi,Groceries
+cooking oil,Groceries
+wheat flour atta,Groceries
+rice bag,Groceries
+dal and pulses,Groceries
+spices and masala,Groceries
+salt and sugar,Groceries
+tea leaves,Groceries
+coffee powder,Groceries
+bath soap,Groceries
+shampoo sachet,Groceries
+toothpaste and brush,Groceries
+washing powder,Groceries
+dishwash bar,Groceries
+floor cleaner,Groceries
+toilet cleaner,Groceries
+garbage bags,Groceries
+kitchen towels,Groceries
+napkins and tissues,Groceries
+mosquito repellent,Groceries
+all out refill,Groceries
+incense sticks agarbatti,Groceries
+pooja items,Groceries
+local kirana store,Groceries
+supermarket bill,Groceries
+fresh vegetables,Groceries
+seasonal fruits,Groceries
+onion and potato,Groceries
+ginger and garlic,Groceries
+coriander and chilies,Groceries
+battery cells,Groceries
+light bulb,Groceries
+candle pack,Groceries
+mop and broom,Groceries
+bucket and mug,Groceries
+safety pins,Groceries
+shoe polish,Groceries
+umbrella purchase,Shopping
+rainy season gear,Shopping
+winter hoodie,Shopping
+blanket and quilt,Shopping
+towel set,Shopping
+handkerchief,Shopping
+wallet purchase,Shopping
+handbag for women,Shopping
+backpack for office,Shopping
+laptop bag,Shopping
+suitcase for travel,Shopping
+duffel bag,Shopping
+mobile screen guard,Shopping
+phone back cover,Shopping
+earphone case,Shopping
+charging cable,Shopping
+electric extension board,Shopping
+multi plug adapter,Shopping
+hair oil,Shopping
+face wash,Shopping
+body lotion,Shopping
+shaving cream,Shopping
+aftershave,Shopping
+razor blades,Shopping
+hair gel,Shopping
+comb and brush,Shopping
+makeup kit,Shopping
+lipstick and kajal,Shopping
+nail polish,Shopping
+face powder,Shopping
+sunscreen lotion,Shopping
+cotton pads,Shopping
+sanitary napkins,Health
+adult diapers,Health
+baby wipes,Groceries
+talcum powder,Groceries
+band-aid,Health
+antiseptic liquid,Health
+dettol bottle,Health
+cough syrup,Health
+pain relief spray,Health
+volini gel,Health
+digestive tablets,Health
+pudina hara,Health
+glucose powder,Health
+ors sachet,Health
+bandages and gauze,Health
+medical tape,Health
+thermometer digital,Health
+face mask n95,Health
+hand wash liquid,Groceries
+hand sanitizer gel,Groceries
+house rent,Bills
+apartment maintenance,Bills
+society charges,Bills
+property tax,Bills
+income tax payment,Bills
+insurance premium,Bills
+lic policy,Bills
+pension contribution,Bills
+loan emi,Bills
+car loan payment,Bills
+home loan emi,Bills
+personal loan,Bills
+credit card bill,Bills
+bank interest,Bills
+atm withdrawal fee,Other
+charity donation,Other
+temple offering,Other
+wedding gift,Other
+shagun envelope,Other
+courier charges,Other
+speed post,Other
+printing and xerox,Education
+stationary items,Education
+notebook and diary,Education
+pen and ink,Education
+pencil box,Education
+geometry box,Education
+eraser and sharpener,Education
+glue stick,Education
+stapler pins,Education
+files and folders,Education
+newspaper subscription,Bills
+magazine purchase,Education
+novel or storybook,Education
+comic book,Education
+kid's coloring book,Education
+crayons and paints,Education
+school uniform,Education
+college bag,Education
+shoe lace,Shopping
+gym water bottle,Shopping
+yoga mat,Health
+dumbbells pair,Health
+skipping rope,Health
+cricket bat,Entertainment
+badminton shuttle,Entertainment
+football purchase,Entertainment
+swimming goggles,Entertainment
+bicycle pump,Travel
+helmet for bike,Travel
+seat cover,Travel
+wiper blades,Travel
+car perfume,Travel
+keychain,Shopping
+belt and buckle,Shopping
+watch battery,Shopping
+spectacle cleaning kit,Health
+starbucks latte,Food
+subway sandwich,Food
+taco bell,Food
+lunch at office,Food
+dinner at hotel,Food
+vada pav,Food
+biryani order,Food
+sweet shop,Food
+haldirams,Food
+barbeque nation,Food
+maggi noodles,Food
+soft drink,Food
+juice bar,Food
+momo station,Food
+pork ribs,Food
+steak house,Food
+sushi platter,Food
+dim sum,Food
+pasta carbonara,Food
+salad bowl,Food
+gym diet meal,Food
+fruit basket,Food
+cookies and biscuits,Food
+chocolates,Food
+frozen food,Food
+instant noodles,Food
+tea bag pack,Food
+coffee beans,Food
+milk shake,Food
+waffle house,Food
+pancakes breakfast,Food
+brunch buffet,Food
+food truck meal,Food
+movie popcorn,Food
+stadium snacks,Food
+airport meal,Food
+train food service,Food
+office cafeteria,Food
+university canteen,Food
+street side chaat,Food
+panipuri stall,Food
+samosa party,Food
+birthday cake,Food
+pastry shop,Food
+ice cream parlor,Food
+yogurt cup,Food
+energy drink,Food
+wine shop,Food
+beer bottle,Food
+liquor store,Food
+whiskey purchase,Food
+cocktail bar,Food
+pub bill,Food
+nightclub drinks,Food
+uber credit,Travel
+ola money,Travel
+rapido bike,Travel
+indriver ride,Travel
+blusmart cab,Travel
+meru cabs,Travel
+zoomcar rental,Travel
+revv car,Travel
+bike rental,Travel
+scooter hire,Travel
+bicycle sharing,Travel
+bus pass monthly,Travel
+intercity bus,Travel
+volvo bus ticket,Travel
+sleeper coach,Travel
+railway catering,Travel
+tatkal ticket,Travel
+platform ticket,Travel
+airport shuttle,Travel
+parking monthly,Travel
+valet parking,Travel
+car wash service,Travel
+car puncture repair,Travel
+engine oil change,Travel
+tyre replacement,Travel
+car insurance premium,Travel
+bike insurance,Travel
+roadside assistance,Travel
+toll plaza payment,Travel
+fastag recharge,Travel
+highway toll,Travel
+visa fee,Travel
+passport application,Travel
+travel insurance,Travel
+hotel stay,Travel
+airbnb booking,Travel
+hostel bed,Travel
+resort stay,Travel
+sightseeing tour,Travel
+guide fee,Travel
+museum entry ticket,Travel
+zoo ticket,Travel
+amusement park,Travel
+water park entry,Travel
+safari booking,Travel
+mountain trekking,Travel
+tent rental,Travel
+nike shoes,Shopping
+adidas sneakers,Shopping
+puma t-shirt,Shopping
+levi jeans,Shopping
+denim jacket,Shopping
+winter coat,Shopping
+raincoat,Shopping
+formal suit,Shopping
+tie and belt,Shopping
+socks pack,Shopping
+underwear,Shopping
+jewelry purchase,Shopping
+gold ring,Shopping
+silver chain,Shopping
+watch repair,Shopping
+smartwatch,Shopping
+apple iphone,Shopping
+samsung phone,Shopping
+laptop charger,Shopping
+wireless earbuds,Shopping
+bluetooth speaker,Shopping
+power bank,Shopping
+usb cable,Shopping
+keyboard and mouse,Shopping
+monitor screen,Shopping
+printer ink,Shopping
+sofa set,Shopping
+dining table,Shopping
+curtains,Shopping
+bedsheets,Shopping
+pillow covers,Shopping
+kitchen utensils,Shopping
+cookware set,Shopping
+mixer grinder,Shopping
+microwave oven,Shopping
+refrigerator,Shopping
+washing machine,Shopping
+air conditioner,Shopping
+fan repair,Shopping
+led bulb,Shopping
+home paint,Shopping
+hardware tools,Shopping
+hammer and nails,Shopping
+gardening tools,Shopping
+plants and seeds,Shopping
+pet food,Shopping
+dog leash,Shopping
+cat litter,Shopping
+aquarium fish,Shopping
+toys for kids,Shopping
+board games,Shopping
+baby diapers,Shopping
+baby food,Shopping
+school bag,Shopping
+stationery set,Shopping
+pen and pencil,Shopping
+art supplies,Shopping
+canvas and paint,Shopping
+gift wrapping,Shopping
+perfume bottle,Shopping
+deodorant,Shopping
+shampoo and conditioner,Shopping
+skincare cream,Shopping
+sunscreen,Shopping
+haircut at salon,Shopping
+spa massage,Shopping
+manicure service,Shopping
+beauty parlor,Shopping
+blood pressure monitor,Health
+thermometer,Health
+face masks pack,Health
+hand sanitizer,Health
+first aid kit,Health
+bandages,Health
+eye drops,Health
+contact lenses,Health
+spectacles frame,Health
+optical checkup,Health
+physiotherapy,Health
+chiropractor,Health
+acupuncture,Health
+mental health app,Health
+meditation guide,Health
+sleep tracker,Health
+weight scale,Health
+multivitamins,Health
+fish oil capsules,Health
+ayurvedic medicine,Health
+homeopathy,Health
+denture cleaning,Health
+braces adjustment,Health
+x-ray charges,Health
+mri scan,Health
+ultrasound,Health
+urine test,Health
+ecg report,Health
+ambulance service,Health
+hospital room rent,Health
+nursing care,Health
+post-op recovery,Health
+rehab center,Health
+emergency room,Health
+surgical masks,Health
+gloves box,Health
+sanitary pads,Health
+shaving kit,Shopping
+electric shaver,Shopping
+hair dryer,Shopping
+straightener,Shopping

@@ -19,3 +19,14 @@ export const addExpense = (data) => {
 export const getInsights = () => {
   return axios.get(`${BASE_URL}/insights`);
 };
+
+export const getPrediction = () => {
+  return axios.get(`${BASE_URL}/prediction`);
+};
+
+export const resetAllExpenses = async () => {
+  const response = await fetch("http://localhost:8000/expenses/reset", {
+    method: "DELETE",
+  });
+  return response.json();
+};
