@@ -255,24 +255,6 @@ const Dashboard = () => {
     </div>
   );
 };
-const handleReset = async () => {
-  // Always ask for confirmation so a recruiter doesn't do it by accident!
-  const confirmed = window.confirm("⚠️ Are you sure? This will delete all tracked expenses permanently.");
-  
-  if (confirmed) {
-    try {
-      const response = await fetch("http://localhost:8000/expenses/reset", {
-        method: "DELETE",
-      });
-      if (response.ok) {
-        alert("Database cleared! Your tracking is back to zero.");
-        window.location.reload(); // Refresh to show empty state
-      }
-    } catch (error) {
-      console.error("Reset failed:", error);
-    }
-  }
-};
 
 const styles = {
   pageWrapper: {

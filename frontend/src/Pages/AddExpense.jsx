@@ -1,16 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { addExpense } from "../Services/api";
 import { categories } from "../data/placeholder";
 
 const AddExpense = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const auth = localStorage.getItem("isLoggedIn");
-    if (!auth) {
-      navigate("/login", { state: { message: "Please log in to access the demo." } }); 
-    }
-  }, [navigate]);
   const [form, setForm] = useState({
     amount: "",
     description: "",

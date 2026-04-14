@@ -526,6 +526,5 @@ const styles = {
     cursor: "pointer",
     fontFamily: "'Inter', sans-serif",
     transition: "all 0.2s ease",
-  }
-  
+  },
 };

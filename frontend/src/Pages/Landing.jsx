@@ -7,82 +7,60 @@ import { monthlyData, categoryData } from "../data/placeholder";
 
 export default function Landing() {
   return (
-    <div style={{ background: "linear-gradient(to bottom, #fdfdf9 0%, #f8f8f4 50%, #fafaf6 100%)", minHeight: "100vh", position: "relative", overflow: "hidden" }}>
+    <div style={styles.container}>
       
       {/* Subtle background pattern */}
-      <div style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(15, 75, 50, 0.03) 1px, transparent 0)`,
-        backgroundSize: "48px 48px",
-        pointerEvents: "none",
-      }} />
+      <div style={styles.bgPattern} />
 
       {/* Decorative blur elements */}
-      <div style={{
-        position: "absolute",
-        top: "-10%",
-        right: "5%",
-        width: "500px",
-        height: "500px",
-        background: "radial-gradient(circle, rgba(22, 101, 52, 0.08) 0%, transparent 70%)",
-        borderRadius: "50%",
-        filter: "blur(80px)",
-        pointerEvents: "none",
-      }} />
-      
-      <div style={{
-        position: "absolute",
-        bottom: "10%",
-        left: "-5%",
-        width: "600px",
-        height: "600px",
-        background: "radial-gradient(circle, rgba(132, 204, 22, 0.06) 0%, transparent 70%)",
-        borderRadius: "50%",
-        filter: "blur(100px)",
-        pointerEvents: "none",
-      }} />
+      <div style={styles.bgBlur1} />
+      <div style={styles.bgBlur2} />
 
       {/* ── HERO ── */}
-      <section style={s.hero}>
-        <div style={s.heroLeft}>
-          <div style={s.eyebrowContainer}>
-            <div style={s.eyebrowDot} />
-            <p style={s.eyebrow}>Intelligent Financial Companion</p>
+      <section style={styles.hero}>
+        <div style={styles.heroLeft}>
+          <div style={styles.eyebrowContainer}>
+            <div style={styles.eyebrowDot} />
+            <p style={styles.eyebrow}>Intelligent Financial Companion</p>
           </div>
 
-          <h1 style={s.headline}>
+          <h1 style={styles.headline}>
             Master Your
             <br />
-            <span style={s.highlightText}>Money Flow</span>
+            <span style={styles.highlightText}>Money Flow</span>
             <br />
             Effortlessly
           </h1>
 
-          <p style={s.subtext}>
+          <p style={styles.subtext}>
             Experience the art of mindful spending with AI-powered insights. 
             Track every transaction, understand patterns, and achieve your financial goals with elegance.
           </p>
 
-          <div style={s.ctaRow}>
-            <Link to="/login" style={{ textDecoration: 'none' }}>
-              <button style={s.secondaryBtn}>
+          <div style={styles.ctaRow}>
+            <Link to="/dashboard" style={{ textDecoration: 'none' }}>
+              <button style={styles.primaryBtn}>
+                Start Your Journey
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '6px' }}>
+                  <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </Link>
+            <Link to="/history" style={{ textDecoration: 'none' }}>
+              <button style={styles.secondaryBtn}>
                 Explore Demo
               </button>
             </Link>
           </div>
 
-          <div style={s.trustRow}>
+          <div style={styles.trustRow}>
             {[
               { icon: "🔒", text: "Bank-grade Security" },
               { icon: "🤖", text: "Smart AI Engine" },
               { icon: "⚡", text: "Real-time Sync" }
             ].map((item) => (
-              <div key={item.text} style={s.trustItem}>
-                <span style={s.trustIcon}>{item.icon}</span>
+              <div key={item.text} style={styles.trustItem}>
+                <span style={styles.trustIcon}>{item.icon}</span>
                 <span>{item.text}</span>
               </div>
             ))}
@@ -90,15 +68,15 @@ export default function Landing() {
         </div>
 
         {/* Hero right — Enhanced chart preview */}
-        <div style={s.heroRight}>
-          <div style={s.heroCard}>
-            <div style={s.cardHeader}>
+        <div style={styles.heroRight}>
+          <div style={styles.heroCard}>
+            <div style={styles.cardHeader}>
               <div>
-                <p style={s.cardLabel}>Monthly Overview</p>
-                <p style={s.cardSub}>Last 6 months trajectory</p>
+                <p style={styles.cardLabel}>Monthly Overview</p>
+                <p style={styles.cardSub}>Last 6 months trajectory</p>
               </div>
-              <div style={s.trendBadge}>
-                <span style={s.trendArrow}>↗</span>
+              <div style={styles.trendBadge}>
+                <span style={styles.trendArrow}>↗</span>
                 <span>+12%</span>
               </div>
             </div>
@@ -131,15 +109,15 @@ export default function Landing() {
                 <Bar dataKey="amount" fill="url(#barGradient)" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
-            <div style={s.cardFooter}>
-              <div style={s.footerDot} />
+            <div style={styles.cardFooter}>
+              <div style={styles.footerDot} />
               <span>Average ₹16,060 per month</span>
             </div>
           </div>
 
-          <div style={s.spendCard}>
-            <p style={s.spendLabel}>Category Distribution</p>
-            <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+          <div style={styles.spendCard}>
+            <p style={styles.spendLabel}>Category Distribution</p>
+            <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
               <div style={{ position: 'relative' }}>
                 <PieChart width={80} height={80}>
                   <defs>
@@ -162,19 +140,19 @@ export default function Landing() {
                     ))}
                   </Pie>
                 </PieChart>
-                <div style={s.pieCenter}>
-                  <span style={s.pieCenterText}>30d</span>
+                <div style={styles.pieCenter}>
+                  <span style={styles.pieCenterText}>30d</span>
                 </div>
               </div>
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, minWidth: "200px" }}>
                 {categoryData.slice(0, 4).map((c, idx) => (
                   <div key={c.name} style={{
-                    ...s.spendRow,
+                    ...styles.spendRow,
                     animation: `fadeInUp 0.5s ease ${idx * 0.1}s both`
                   }}>
-                    <span style={{ ...s.spendDot, background: c.color }} />
-                    <span style={s.spendCat}>{c.name}</span>
-                    <span style={s.spendAmt}>₹{c.value.toLocaleString("en-IN")}</span>
+                    <span style={{ ...styles.spendDot, background: c.color }} />
+                    <span style={styles.spendCat}>{c.name}</span>
+                    <span style={styles.spendAmt}>₹{c.value.toLocaleString("en-IN")}</span>
                   </div>
                 ))}
               </div>
@@ -184,31 +162,31 @@ export default function Landing() {
       </section>
 
       {/* ── FEATURES ── */}
-      <section style={s.features}>
-        <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
-          <div style={s.featuresHeader}>
-            <span style={s.featuresEyebrow}>Powerful Features</span>
-            <h2 style={s.featuresTitle}>Everything You Need to Succeed</h2>
-            <p style={s.featuresDesc}>
+      <section style={styles.features}>
+        <div style={styles.featuresContainer}>
+          <div style={styles.featuresHeader}>
+            <span style={styles.featuresEyebrow}>Powerful Features</span>
+            <h2 style={styles.featuresTitle}>Everything You Need to Succeed</h2>
+            <p style={styles.featuresDesc}>
               Built with modern technology and designed for humans who care about their financial future
             </p>
           </div>
 
-          <div style={s.featureGrid}>
+          <div style={styles.featureGrid}>
             {featureItems.map((f, idx) => (
               <div 
                 key={f.title} 
                 style={{
-                  ...s.featureCard,
+                  ...styles.featureCard,
                   animation: `fadeInUp 0.6s ease ${idx * 0.1}s both`
                 }}
               >
-                <div style={{ ...s.featureIcon, background: f.bg }}>
+                <div style={{ ...styles.featureIcon, background: f.bg }}>
                   <span style={{ fontSize: "24px" }}>{f.icon}</span>
                 </div>
-                <h3 style={s.featureHeading}>{f.title}</h3>
-                <p style={s.featureDesc}>{f.desc}</p>
-                <div style={s.featureLearnMore}>
+                <h3 style={styles.featureHeading}>{f.title}</h3>
+                <p style={styles.featureDesc}>{f.desc}</p>
+                <div style={styles.featureLearnMore}>
                   Learn more →
                 </div>
               </div>
@@ -218,19 +196,19 @@ export default function Landing() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={s.cta}>
-        <div style={s.ctaInner}>
-          <div style={s.ctaIcon}>✨</div>
-          <h2 style={s.ctaTitle}>Ready to Transform Your Financial Life?</h2>
-          <p style={s.ctaSubtext}>
+      <section style={styles.cta}>
+        <div style={styles.ctaInner}>
+          <div style={styles.ctaIcon}>✨</div>
+          <h2 style={styles.ctaTitle}>Ready to Transform Your Financial Life?</h2>
+          <p style={styles.ctaSubtext}>
             Join thousands who've taken control of their spending habits
           </p>
           <Link to="/dashboard" style={{ textDecoration: 'none' }}>
-            <button style={s.ctaButton}>
+            <button style={styles.ctaButton}>
               Get Started — It's Free
             </button>
           </Link>
-          <p style={s.ctaNote}>No credit card required • Set up in under 2 minutes</p>
+          <p style={styles.ctaNote}>No credit card required • Set up in under 2 minutes</p>
         </div>
       </section>
 
@@ -244,6 +222,14 @@ export default function Landing() {
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .hero-section {
+            flex-direction: column !important;
+            gap: 40px !important;
+            padding: 60px 20px 60px !important;
           }
         }
       `}</style>
@@ -279,9 +265,48 @@ const featureItems = [
   },
 ];
 
-const s = {
+const styles = {
+  container: {
+    background: "linear-gradient(to bottom, #fdfdf9 0%, #f8f8f4 50%, #fafaf6 100%)",
+    minHeight: "100vh",
+    position: "relative",
+    overflow: "hidden",
+  },
+  bgPattern: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(15, 75, 50, 0.03) 1px, transparent 0)`,
+    backgroundSize: "48px 48px",
+    pointerEvents: "none",
+  },
+  bgBlur1: {
+    position: "absolute",
+    top: "-10%",
+    right: "5%",
+    width: "min(500px, 80vw)",
+    height: "min(500px, 80vw)",
+    background: "radial-gradient(circle, rgba(22, 101, 52, 0.08) 0%, transparent 70%)",
+    borderRadius: "50%",
+    filter: "blur(80px)",
+    pointerEvents: "none",
+  },
+  bgBlur2: {
+    position: "absolute",
+    bottom: "10%",
+    left: "-5%",
+    width: "min(600px, 90vw)",
+    height: "min(600px, 90vw)",
+    background: "radial-gradient(circle, rgba(132, 204, 22, 0.06) 0%, transparent 70%)",
+    borderRadius: "50%",
+    filter: "blur(100px)",
+    pointerEvents: "none",
+  },
   hero: {
     display: "flex",
+    flexDirection: "row",
     alignItems: "center",
     gap: "80px",
     maxWidth: "1280px",
@@ -291,15 +316,16 @@ const s = {
     zIndex: 1,
   },
   heroLeft: { 
-    flex: "0 0 520px",
+    flex: "1",
+    minWidth: "280px",
   },
   heroRight: { 
-    flex: 1, 
+    flex: "1", 
     display: "flex", 
     flexDirection: "column", 
-    gap: "20px" 
+    gap: "20px",
+    minWidth: "280px",
   },
-
   eyebrowContainer: {
     display: "flex",
     alignItems: "center",
@@ -322,7 +348,7 @@ const s = {
     fontFamily: "'Inter', sans-serif",
   },
   headline: {
-    fontSize: "clamp(48px, 5vw, 68px)",
+    fontSize: "clamp(36px, 8vw, 68px)",
     fontWeight: "400",
     lineHeight: 1.1,
     color: "#171717",
@@ -340,28 +366,28 @@ const s = {
     display: "inline-block",
   },
   subtext: {
-    fontSize: "18px",
+    fontSize: "clamp(15px, 3vw, 18px)",
     color: "#525252",
     lineHeight: 1.7,
     marginBottom: "40px",
     fontWeight: "400",
     fontFamily: "'Inter', sans-serif",
-    maxWidth: "480px",
   },
   ctaRow: { 
     display: "flex", 
     gap: "14px", 
-    marginBottom: "36px" 
+    marginBottom: "36px",
+    flexWrap: "wrap",
   },
   primaryBtn: {
     display: "flex",
     alignItems: "center",
-    padding: "16px 32px",
+    padding: "clamp(12px, 3vw, 16px) clamp(20px, 5vw, 32px)",
     background: "linear-gradient(135deg, #0f4b32 0%, #166534 100%)",
     color: "white",
     border: "none",
     borderRadius: "12px",
-    fontSize: "16px",
+    fontSize: "clamp(14px, 3vw, 16px)",
     fontWeight: "600",
     cursor: "pointer",
     fontFamily: "'Inter', sans-serif",
@@ -370,12 +396,12 @@ const s = {
     boxShadow: "0 4px 16px rgba(15, 75, 50, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
   },
   secondaryBtn: {
-    padding: "16px 32px",
+    padding: "clamp(12px, 3vw, 16px) clamp(20px, 5vw, 32px)",
     background: "transparent",
     color: "#0f4b32",
     border: "2px solid rgba(15, 75, 50, 0.2)",
     borderRadius: "12px",
-    fontSize: "16px",
+    fontSize: "clamp(14px, 3vw, 16px)",
     fontWeight: "600",
     cursor: "pointer",
     fontFamily: "'Inter', sans-serif",
@@ -388,7 +414,7 @@ const s = {
     flexWrap: "wrap" 
   },
   trustItem: { 
-    fontSize: "14px", 
+    fontSize: "clamp(13px, 2.5vw, 14px)", 
     color: "#737373", 
     display: "flex", 
     alignItems: "center", 
@@ -399,11 +425,10 @@ const s = {
   trustIcon: {
     fontSize: "16px",
   },
-
   heroCard: {
     background: "#fdfdf9",
     borderRadius: "20px",
-    padding: "32px",
+    padding: "clamp(20px, 5vw, 32px)",
     border: "1px solid rgba(15, 75, 50, 0.08)",
     boxShadow: "0 8px 32px rgba(0,0,0,0.06), 0 0 0 1px rgba(15, 75, 50, 0.04)",
     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -413,7 +438,9 @@ const s = {
     display: "flex", 
     justifyContent: "space-between", 
     alignItems: "flex-start", 
-    marginBottom: "20px" 
+    marginBottom: "20px",
+    flexWrap: "wrap",
+    gap: "12px",
   },
   cardLabel: { 
     fontSize: "15px", 
@@ -458,11 +485,10 @@ const s = {
     background: "#166534",
     opacity: 0.5,
   },
-
   spendCard: {
     background: "#fdfdf9",
     borderRadius: "20px",
-    padding: "28px",
+    padding: "clamp(20px, 5vw, 28px)",
     border: "1px solid rgba(15, 75, 50, 0.08)",
     boxShadow: "0 8px 32px rgba(0,0,0,0.06), 0 0 0 1px rgba(15, 75, 50, 0.04)",
     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -515,16 +541,20 @@ const s = {
     color: "#737373",
     fontFamily: "'Inter', sans-serif",
   },
-
   features: { 
-    padding: "120px 0", 
+    padding: "clamp(60px, 15vw, 120px) 0", 
     background: "#fdfdf9",
     position: "relative",
     zIndex: 1,
   },
+  featuresContainer: {
+    maxWidth: '1280px',
+    margin: '0 auto',
+    padding: '0 clamp(20px, 5vw, 40px)',
+  },
   featuresHeader: {
     textAlign: "center",
-    marginBottom: "80px",
+    marginBottom: "clamp(40px, 10vw, 80px)",
   },
   featuresEyebrow: { 
     fontSize: "13px", 
@@ -537,7 +567,7 @@ const s = {
     marginBottom: "16px",
   },
   featuresTitle: { 
-    fontSize: "clamp(32px, 3.5vw, 48px)", 
+    fontSize: "clamp(28px, 6vw, 48px)", 
     fontWeight: "400", 
     letterSpacing: "-0.02em", 
     color: "#171717", 
@@ -545,7 +575,7 @@ const s = {
     fontFamily: "'Playfair Display', serif",
   },
   featuresDesc: {
-    fontSize: "18px",
+    fontSize: "clamp(15px, 3vw, 18px)",
     color: "#525252",
     maxWidth: "600px",
     margin: "0 auto",
@@ -554,11 +584,11 @@ const s = {
   },
   featureGrid: { 
     display: "grid", 
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
-    gap: "28px" 
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", 
+    gap: "clamp(20px, 4vw, 28px)" 
   },
   featureCard: { 
-    padding: "40px 32px", 
+    padding: "clamp(28px, 6vw, 40px) clamp(24px, 5vw, 32px)", 
     background: "#fdfdf9",
     borderRadius: "16px",
     border: "1px solid rgba(15, 75, 50, 0.08)",
@@ -578,7 +608,7 @@ const s = {
     boxShadow: "0 4px 12px rgba(15, 75, 50, 0.08)",
   },
   featureHeading: { 
-    fontSize: "18px", 
+    fontSize: "clamp(16px, 3.5vw, 18px)", 
     fontWeight: "600", 
     marginBottom: "12px", 
     color: "#171717",
@@ -586,7 +616,7 @@ const s = {
     letterSpacing: "-0.01em",
   },
   featureDesc: { 
-    fontSize: "15px", 
+    fontSize: "clamp(14px, 3vw, 15px)", 
     color: "#525252", 
     lineHeight: 1.65, 
     fontWeight: "400",
@@ -601,9 +631,8 @@ const s = {
     cursor: "pointer",
     transition: "all 0.2s ease",
   },
-
   cta: { 
-    padding: "120px 40px", 
+    padding: "clamp(60px, 15vw, 120px) clamp(20px, 5vw, 40px)", 
     background: "linear-gradient(135deg, #0f4b32 0%, #166534 50%, #14532d 100%)",
     position: "relative",
     zIndex: 1,
@@ -614,11 +643,11 @@ const s = {
     textAlign: "center" 
   },
   ctaIcon: {
-    fontSize: "48px",
+    fontSize: "clamp(36px, 8vw, 48px)",
     marginBottom: "24px",
   },
   ctaTitle: { 
-    fontSize: "clamp(32px, 3.5vw, 48px)", 
+    fontSize: "clamp(28px, 6vw, 48px)", 
     fontWeight: "400", 
     letterSpacing: "-0.025em", 
     color: "#fdfdf9", 
@@ -627,19 +656,19 @@ const s = {
     lineHeight: 1.2,
   },
   ctaSubtext: {
-    fontSize: "18px",
+    fontSize: "clamp(15px, 3vw, 18px)",
     color: "rgba(253, 253, 249, 0.8)",
     marginBottom: "40px",
     fontFamily: "'Inter', sans-serif",
     lineHeight: 1.6,
   },
   ctaButton: {
-    padding: "18px 40px",
+    padding: "clamp(14px, 3.5vw, 18px) clamp(28px, 7vw, 40px)",
     background: "#fdfdf9",
     color: "#0f4b32",
     border: "none",
     borderRadius: "12px",
-    fontSize: "17px",
+    fontSize: "clamp(15px, 3vw, 17px)",
     fontWeight: "700",
     cursor: "pointer",
     fontFamily: "'Inter', sans-serif",
@@ -648,9 +677,22 @@ const s = {
     boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)",
   },
   ctaNote: {
-    fontSize: "14px",
+    fontSize: "clamp(12px, 2.5vw, 14px)",
     color: "rgba(253, 253, 249, 0.6)",
     marginTop: "20px",
     fontFamily: "'Inter', sans-serif",
   },
 };
+
+// Add responsive CSS
+const responsiveStyles = document.createElement("style");
+responsiveStyles.textContent = `
+  @media (max-width: 768px) {
+    section[style*="hero"] > div:first-child {
+      flex-direction: column !important;
+      gap: 40px !important;
+      padding: 60px 20px 60px !important;
+    }
+  }
+`;
+document.head.appendChild(responsiveStyles);
