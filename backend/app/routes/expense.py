@@ -1,8 +1,8 @@
 from fastapi import APIRouter
-from app.schemas.expense import Expense
-from app.database import expense_collection
-from app.utils.categorize import categorize
-from app.ml_model.predict import predict_category
+from schemas.expense import Expense
+from database import expense_collection
+from utils.categorize import categorize
+from ml_model.predict import predict_category
 
 router = APIRouter()
 

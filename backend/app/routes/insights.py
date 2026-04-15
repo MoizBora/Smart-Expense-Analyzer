@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.database import expense_collection
+from database import expense_collection
 
 router = APIRouter()
 
