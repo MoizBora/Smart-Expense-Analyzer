@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from app.database import expense_collection
-from app.routes import expense
+from database import expense_collection
+from routes import expense
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes.insights import router as insights
+from routes.insights import router as insights
 
 
 
