@@ -14,10 +14,10 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Use a simple password for recruiters
+    
     if (password === "Freedemo") {
       localStorage.setItem("isLoggedIn", "true");
-      navigate("/add"); // Redirect to your add expense page
+      navigate("/add"); 
     } else {
       alert("Wrong password! Try: Freedemo");
     }
