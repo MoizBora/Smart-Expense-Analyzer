@@ -9,14 +9,14 @@ export default function Landing() {
   return (
     <div style={styles.container}>
       
-      {/* Subtle background pattern */}
+      
       <div style={styles.bgPattern} />
 
-      {/* Decorative blur elements */}
+      
       <div style={styles.bgBlur1} />
       <div style={styles.bgBlur2} />
 
-      {/* ── HERO ── */}
+      
       <section style={styles.hero}>
         <div style={styles.heroLeft}>
           <div style={styles.eyebrowContainer}>
@@ -67,7 +67,7 @@ export default function Landing() {
           </div>
         </div>
 
-        {/* Hero right — Enhanced chart preview */}
+        
         <div style={styles.heroRight}>
           <div style={styles.heroCard}>
             <div style={styles.cardHeader}>
@@ -161,7 +161,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ── FEATURES ── */}
+      
       <section style={styles.features}>
         <div style={styles.featuresContainer}>
           <div style={styles.featuresHeader}>
@@ -195,7 +195,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      
       <section style={styles.cta}>
         <div style={styles.ctaInner}>
           <div style={styles.ctaIcon}>✨</div>
@@ -212,7 +212,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Add keyframes for animations */}
+      
       <style>{`
         @keyframes fadeInUp {
           from {

@@ -1,17 +1,17 @@
 export default function StatCard({ title, value, icon, trend, trendLabel, color, textColor }) {
   return (
     <div style={styles.card}>
-      {/* Icon container */}
+      
       <div style={{ ...styles.iconBox, background: color }}>
         <span style={{ fontSize: "28px" }}>{icon}</span>
       </div>
 
-      {/* Content */}
+      
       <div style={styles.content}>
         <p style={styles.title}>{title}</p>
         <p style={{ ...styles.value, color: textColor }}>{value}</p>
 
-        {/* Optional trend indicator */}
+        
         {trendLabel && (
           <div style={styles.trendContainer}>
             <span style={styles.trendDot} />

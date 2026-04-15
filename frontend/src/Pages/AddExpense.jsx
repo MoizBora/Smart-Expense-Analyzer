@@ -48,11 +48,11 @@ const AddExpense = () => {
 
   return (
     <div style={styles.pageWrapper}>
-      {/* Decorative background elements */}
+     
       <div style={styles.bgDecoration1} />
       <div style={styles.bgDecoration2} />
 
-      {/* Header */}
+      
       <div style={styles.header}>
         <div>
           <h1 style={styles.title}>Add New Expense</h1>
@@ -69,7 +69,7 @@ const AddExpense = () => {
         </div>
       </div>
 
-      {/* Success notification with animation */}
+      
       {submitted && (
         <div style={styles.successBanner}>
           <div style={styles.successContent}>
@@ -87,7 +87,7 @@ const AddExpense = () => {
         </div>
       )}
 
-      {/* Main form card */}
+     
       <div style={styles.formCard}>
         <div style={styles.formHeader}>
           <div style={styles.formIconContainer}>
@@ -103,7 +103,7 @@ const AddExpense = () => {
 
         <form onSubmit={handleSubmit} style={styles.form}>
           
-          {/* Amount Input */}
+         
           <div style={styles.inputGroup}>
             <label style={styles.label}>
               <span style={styles.labelText}>Amount</span>
@@ -124,7 +124,7 @@ const AddExpense = () => {
             <p style={styles.helpText}>Enter the transaction amount in rupees</p>
           </div>
 
-          {/* Description Input */}
+          
           <div style={styles.inputGroup}>
             <label style={styles.label}>
               <span style={styles.labelText}>Description</span>
@@ -142,7 +142,7 @@ const AddExpense = () => {
             <p style={styles.helpText}>Provide a brief description of the expense</p>
           </div>
 
-          {/* Date Input */}
+         
           <div style={styles.inputGroup}>
             <label style={styles.label}>
               <span style={styles.labelText}>Date</span>
@@ -159,7 +159,7 @@ const AddExpense = () => {
             <p style={styles.helpText}>When did this transaction occur?</p>
           </div>
 
-          {/* AI Info Badge */}
+          
           <div style={styles.aiInfoBadge}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}>
               <circle cx="10" cy="10" r="8" stroke="#166534" strokeWidth="1.5" fill="none"/>
@@ -173,7 +173,7 @@ const AddExpense = () => {
             </div>
           </div>
 
-          {/* Submit Button */}
+          
           <button 
             type="submit" 
             disabled={loading}
@@ -200,7 +200,7 @@ const AddExpense = () => {
         </form>
       </div>
 
-      {/* Quick tips section */}
+      
       <div style={styles.tipsCard}>
         <h3 style={styles.tipsTitle}>💡 Quick Tips</h3>
         <ul style={styles.tipsList}>
@@ -210,7 +210,7 @@ const AddExpense = () => {
         </ul>
       </div>
 
-      {/* Spinner animation */}
+      
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }

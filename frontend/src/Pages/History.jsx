@@ -44,11 +44,11 @@ export default function History() {
 
   return (
     <div style={styles.pageWrapper}>
-      {/* Decorative elements */}
+      
       <div style={styles.bgDecoration1} />
       <div style={styles.bgDecoration2} />
 
-      {/* Header */}
+      
       <div style={styles.header}>
         <div>
           <h1 style={styles.title}>Transaction History</h1>
@@ -68,7 +68,7 @@ export default function History() {
         </div>
       </div>
 
-      {/* Search & Filter Card */}
+      
       <div style={styles.filterCard}>
         <div style={styles.searchSection}>
           <div style={styles.searchWrapper}>
@@ -123,7 +123,7 @@ export default function History() {
         </div>
       </div>
 
-      {/* Loading State */}
+      
       {loading && (
         <div style={styles.stateCard}>
           <div style={styles.loadingState}>
@@ -133,7 +133,7 @@ export default function History() {
         </div>
       )}
 
-      {/* Error State */}
+      
       {error && !loading && (
         <div style={styles.stateCard}>
           <div style={styles.errorState}>
@@ -150,7 +150,7 @@ export default function History() {
         </div>
       )}
 
-      {/* Table */}
+      
       {!loading && !error && (
         <div style={styles.tableCard}>
           {filtered.length > 0 ? (
@@ -204,7 +204,7 @@ export default function History() {
         </div>
       )}
 
-      {/* Loading animation */}
+   
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }

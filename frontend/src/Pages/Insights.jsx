@@ -42,11 +42,11 @@ export default function Insights() {
 
   return (
     <div style={styles.pageWrapper}>
-      {/* Decorative background */}
+      
       <div style={styles.bgDecoration1} />
       <div style={styles.bgDecoration2} />
 
-      {/* Header */}
+      
       <div style={styles.header}>
         <div>
           <h1 style={styles.title}>Financial Insights</h1>
@@ -63,7 +63,7 @@ export default function Insights() {
         </div>
       </div>
 
-      {/* Insight Cards Grid */}
+      
       <div style={styles.insightGrid}>
         <InsightCard 
           title="Total Spending" 
@@ -95,7 +95,7 @@ export default function Insights() {
         />
       </div>
 
-      {/* Category Radar Chart */}
+    
       <div style={styles.radarCard}>
         <div style={styles.cardHeader}>
           <div>
@@ -140,7 +140,7 @@ export default function Insights() {
         )}
       </div>
 
-      {/* Smart Tips Section */}
+      
       <div style={styles.tipsCard}>
         <div style={styles.tipsHeader}>
           <h2 style={styles.tipsTitle}>💡 Personalized Recommendations</h2>
@@ -202,7 +202,7 @@ export default function Insights() {
         </div>
       </div>
 
-      {/* Loading animation */}
+     
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }

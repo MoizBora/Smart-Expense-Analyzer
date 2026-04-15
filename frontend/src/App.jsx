@@ -12,13 +12,13 @@ export default function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        {/* The Landing Page is now the root */}
+        
         <Route path="/" element={<Landing />} />
         
-        {/* The Login Page has its own path */}
+       
         <Route path="/login" element={<Login />} />
 
-        {/* These pages are protected by the logic inside the components */}
+        
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add" element={<AddExpense />} />
         <Route path="/history" element={<History />} />

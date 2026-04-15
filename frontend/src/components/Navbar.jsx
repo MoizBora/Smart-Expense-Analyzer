@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <nav style={styles.nav}>
       <div style={styles.inner}>
-        {/* Brand */}
+       
         <Link to="/" style={styles.brand} onClick={() => setMobileMenuOpen(false)}>
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ filter: 'drop-shadow(0 2px 4px rgba(15, 75, 50, 0.1))' }}>
             <defs>
@@ -34,7 +34,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Navigation - Uses class for media queries */}
+        
         <ul className="desktop-nav" style={styles.linkList}>
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
@@ -55,7 +55,7 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Desktop CTA Button */}
+        
         <Link to="/add" className="desktop-cta" style={styles.ctaButtonLink}>
           <button style={styles.ctaButton}>
             <span style={styles.plusIcon}>+</span>
@@ -63,7 +63,7 @@ export default function Navbar() {
           </button>
         </Link>
 
-        {/* Mobile Hamburger Menu Button */}
+        
         <button 
           className="hamburger-btn"
           style={styles.hamburger}
@@ -80,7 +80,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      
       {mobileMenuOpen && (
         <div style={styles.mobileMenu}>
           <ul style={styles.mobileMenuList}>

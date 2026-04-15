@@ -68,7 +68,7 @@ const Dashboard = () => {
 
   return (
     <div style={styles.pageWrapper}>
-      {/* Header Section */}
+      
       <div style={styles.header}>
         <div>
           <h1 style={styles.title}>Financial Dashboard</h1>
@@ -97,7 +97,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Stats Grid */}
+      
       <div style={styles.statGrid}>
         <StatCard 
           title="Total Spending" 
@@ -124,7 +124,7 @@ const Dashboard = () => {
         />
       </div>
 
-      {/* Charts Row */}
+      
       <div style={styles.chartsRow}>
         <div style={styles.chartCard}>
           <div style={styles.chartHeader}>
@@ -231,7 +231,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Recent Activity Table */}
+      
       <div style={styles.tableCard}>
         <div style={styles.tableHeader}>
           <div>
@@ -245,7 +245,7 @@ const Dashboard = () => {
         <ExpenseTable expenses={displayExpenses.slice(0, 5)} />
       </div>
 
-      {/* Loading spinner keyframes */}
+     
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }
