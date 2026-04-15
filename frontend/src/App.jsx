@@ -5,7 +5,7 @@ import Dashboard from "./Pages/Dashboard";
 import AddExpense from "./Pages/AddExpense";
 import History from "./Pages/History";
 import Insights from "./Pages/Insights";
-import Login from "./Pages/Login";
+import Login from "./Pages/login";
 
 export default function App() {
   return (
