@@ -25,7 +25,7 @@ export const getPrediction = () => {
 };
 
 export const resetAllExpenses = async () => {
-  const response = await fetch("http://localhost:8000/expenses/reset", {
+  const response = await fetch("https://smart-expense-analyzer-backend.onrender.com/expense/reset", {
     method: "DELETE",
   });
   return response.json();

@@ -9,6 +9,15 @@ const History = lazy(() => import("./Pages/History"));
 const Insights = lazy(() => import("./Pages/Insights"));
 const Login = lazy(() => import("./Pages/login"));
 
+
+const ProtectedRoute = ({ children }) => {
+  const auth = localStorage.getItem("isLoggedIn");
+  if (auth !== "true") {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+};
+
 export default function App() {
   return (
     <BrowserRouter>
