@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://smart-expense-analyzer-backend.onrender.com";
 
 // GET all expenses
 export const getExpenses = () => {

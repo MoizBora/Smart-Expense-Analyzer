@@ -7,6 +7,9 @@ from routes.insights import router as insights
 
 
 app = FastAPI()
+@app.get("/")
+def home():
+    return {"message": "API is running"}
 app.include_router(expense.router)
 app.include_router(insights)
 app.add_middleware(
