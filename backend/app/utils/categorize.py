@@ -3,9 +3,9 @@ import re
 
 # Load the AI model and vectorizer
 try:
-    with open("app/ml_model/model.pkl", "rb") as f:
+    with open("ml_model/model.pkl", "rb") as f:
         model = pickle.load(f)
-    with open("app/ml_model/vectorizer.pkl", "rb") as f:
+    with open("ml_model/vectorizer.pkl", "rb") as f:
         vectorizer = pickle.load(f)
 except FileNotFoundError:
     print("Warning: Model files not found. Using keyword-only mode.")

@@ -3,10 +3,10 @@ import re
 
 # Load model and vectorizer
 # Ensure the paths are correct relative to where you run the server
-with open("app/ml_model/model.pkl", "rb") as f:
+with open("ml_model/model.pkl", "rb") as f:
     model = pickle.load(f)
 
-with open("app/ml_model/vectorizer.pkl", "rb") as f:
+with open("ml_model/vectorizer.pkl", "rb") as f:
     vectorizer = pickle.load(f)
 
 def predict_category(text):
