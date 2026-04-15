@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getExpenses, getInsights } from "../Services/api";
 import {
-  PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer,
+  PieChart, Pie, Tooltip, Legend, ResponsiveContainer,
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
 } from "recharts";
 import StatCard from "../components/StatCard";

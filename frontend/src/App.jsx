@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
-import Landing from "./Pages/Landing";
-import Dashboard from "./Pages/Dashboard";
-import AddExpense from "./Pages/AddExpense";
-import History from "./Pages/History";
-import Insights from "./Pages/Insights";
-import Login from "./Pages/login";
+
+const Landing = lazy(() => import("./Pages/Landing"));
+const Dashboard = lazy(() => import("./Pages/Dashboard"));
+const AddExpense = lazy(() => import("./Pages/AddExpense"));
+const History = lazy(() => import("./Pages/History"));
+const Insights = lazy(() => import("./Pages/Insights"));
+const Login = lazy(() => import("./Pages/login"));
 
 export default function App() {
   return (
