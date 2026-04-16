@@ -18,19 +18,9 @@ export default function Navbar() {
       <div style={styles.inner}>
        
         <Link to="/" style={styles.brand} onClick={() => setMobileMenuOpen(false)}>
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ filter: 'drop-shadow(0 2px 4px rgba(15, 75, 50, 0.1))' }}>
-            <defs>
-              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0f4b32" />
-                <stop offset="100%" stopColor="#166534" />
-              </linearGradient>
-            </defs>
-            <circle cx="14" cy="14" r="13" fill="url(#logoGrad)" opacity="0.95"/>
-            <path d="M9 14 L13 18 L19 10" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-          </svg>
           <div style={styles.brandTextContainer}>
-            <span style={styles.brandText}>Flōw</span>
-            <span style={styles.brandTagline}>Finance</span>
+            <span style={styles.brandText}>ExpenseTracker</span>
+            <span style={styles.brandTagline}>Smart Finance</span>
           </div>
         </Link>
 
@@ -145,21 +135,22 @@ const styles = {
     flexDirection: "column",
   },
   brandText: {
-    fontSize: "22px",
-    fontWeight: "600",
+    fontSize: "20px",
+    fontWeight: "700",
     color: "#0f4b32",
-    fontFamily: "'Playfair Display', Georgia, serif",
-    lineHeight: "1",
+    fontFamily: "'Inter', sans-serif",
+    lineHeight: "1.2",
+    letterSpacing: "-0.01em",
   },
   brandTagline: {
-    fontSize: "9px",
-    fontWeight: "500",
+    fontSize: "10px",
+    fontWeight: "600",
     color: "#166534",
-    letterSpacing: "0.12em",
+    letterSpacing: "0.1em",
     textTransform: "uppercase",
     fontFamily: "'Inter', sans-serif",
-    marginTop: "-2px",
-    opacity: 0.7,
+    marginTop: "2px",
+    opacity: 0.8,
   },
   linkList: {
     display: "none", // Controlled by injected CSS below

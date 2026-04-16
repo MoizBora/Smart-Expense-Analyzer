@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { addExpense } from "../Services/api";
 import { categories } from "../data/placeholder";
 
 const AddExpense = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     amount: "",
     description: "",
@@ -12,6 +14,14 @@ const AddExpense = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn) {
+      alert("You need to login first to access the demo!");
+      navigate("/login", { state: { message: "Please login to access the Add Expense demo" } });
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -237,7 +247,7 @@ const AddExpense = () => {
 
 const styles = {
   pageWrapper: { 
-    padding: "40px", 
+    padding: "clamp(20px, 5vw, 40px)", 
     maxWidth: "800px", 
     margin: "0 auto",
     fontFamily: "'Inter', sans-serif",
@@ -274,9 +284,11 @@ const styles = {
     marginBottom: "32px",
     position: "relative",
     zIndex: 1,
+    gap: "16px",
+    flexWrap: "wrap",
   },
   title: { 
-    fontSize: "36px", 
+    fontSize: "clamp(24px, 6vw, 36px)", 
     fontWeight: "600", 
     color: "#171717",
     marginBottom: "6px",
@@ -348,7 +360,7 @@ const styles = {
   },
   formCard: {
     background: "#fdfdf9",
-    padding: "40px",
+    padding: "clamp(24px, 5vw, 40px)",
     borderRadius: "20px",
     border: "1px solid rgba(15, 75, 50, 0.08)",
     boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
@@ -422,7 +434,7 @@ const styles = {
     color: "#525252",
   },
   input: { 
-    padding: "14px 16px", 
+    padding: "14px 16px 14px 42px", 
     border: "1.5px solid rgba(15, 75, 50, 0.15)", 
     borderRadius: "12px", 
     fontSize: "15px",

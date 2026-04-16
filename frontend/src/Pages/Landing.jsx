@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell,
@@ -6,6 +6,12 @@ import {
 import { monthlyData, categoryData } from "../data/placeholder";
 
 export default function Landing() {
+  const navigate = useNavigate();
+
+  const handleDemoClick = () => {
+    navigate("/login");
+  };
+
   return (
     <div style={styles.container}>
       
@@ -38,19 +44,12 @@ export default function Landing() {
           </p>
 
           <div style={styles.ctaRow}>
-            <Link to="/dashboard" style={{ textDecoration: 'none' }}>
-              <button style={styles.primaryBtn}>
-                Start Your Journey
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '6px' }}>
-                  <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </Link>
-            <Link to="/history" style={{ textDecoration: 'none' }}>
-              <button style={styles.secondaryBtn}>
-                Explore Demo
-              </button>
-            </Link>
+            <button onClick={handleDemoClick} style={styles.primaryBtn}>
+              Explore Demo
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '6px' }}>
+                <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
 
           <div style={styles.trustRow}>

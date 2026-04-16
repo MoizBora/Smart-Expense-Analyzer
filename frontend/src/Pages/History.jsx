@@ -221,7 +221,7 @@ export default function History() {
 
 const styles = {
   pageWrapper: {
-    padding: "40px",
+    padding: "clamp(20px, 5vw, 40px)",
     maxWidth: "1400px",
     margin: "0 auto",
     fontFamily: "'Inter', sans-serif",
@@ -258,9 +258,11 @@ const styles = {
     marginBottom: "32px",
     position: "relative",
     zIndex: 1,
+    gap: "16px",
+    flexWrap: "wrap",
   },
   title: { 
-    fontSize: "36px", 
+    fontSize: "clamp(24px, 6vw, 36px)", 
     fontWeight: "600", 
     color: "#171717",
     marginBottom: "6px",

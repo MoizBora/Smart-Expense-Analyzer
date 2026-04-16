@@ -258,7 +258,7 @@ const Dashboard = () => {
 
 const styles = {
   pageWrapper: {
-    padding: "40px",
+    padding: "clamp(20px, 5vw, 40px)",
     maxWidth: "1400px",
     margin: "0 auto",
     fontFamily: "'Inter', sans-serif",
@@ -293,7 +293,7 @@ const styles = {
     gap: "20px" 
   },
   title: { 
-    fontSize: "36px", 
+    fontSize: "clamp(24px, 6vw, 36px)", 
     fontWeight: "600", 
     color: "#171717", 
     marginBottom: "6px",
@@ -309,6 +309,7 @@ const styles = {
     display: "flex",
     gap: "12px",
     alignItems: "center",
+    flexWrap: "wrap",
   },
   toggleBtn: {
     background: "transparent",
@@ -354,7 +355,7 @@ const styles = {
   },
   chartsRow: { 
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
     gap: "28px",
     marginBottom: "32px",
   },
