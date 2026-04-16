@@ -14,7 +14,10 @@ app.include_router(expense.router)
 app.include_router(insights)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://smart-expense-analyzer-6xn6-lc8d1rbfc-moizboras-projects.vercel.app"],
+    allow_origins=["https://smart-expense-analyzer-6xn6.vercel.app",
+                   "http://localhost:3000",
+                   "https://smart-expense-analyzer-backend.onrender.com",
+                   "https://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
